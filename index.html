@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matchday 26/27 — Football Calendar</title>
+  <meta name="description" content="Every Premier League, LaLiga and Bundesliga match of the 2026/27 season — fixtures, results, scorers, bookings and player of the match.">
+  <meta name="theme-color" content="#0d0518">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2337003c'/%3E%3Cpath d='M14 44 26 16h8L22 44zM32 44l12-28h8L40 44z' fill='%2300ff85'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800;1,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=2">
+</head>
+<body>
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="Matchday 26/27 home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+      <span class="brand-text">
+        <strong>MATCHDAY</strong>
+        <small>Football Calendar</small>
+      </span>
+      <span class="brand-season">26/27</span>
+    </a>
+
+    <nav class="league-filter" aria-label="League filter" id="leagueFilter">
+      <button class="pill is-active" data-league="all">All</button>
+      <button class="pill" data-league="eng.1"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png" alt="">Premier League</button>
+      <button class="pill" data-league="esp.1"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/15.png" alt="">LaLiga</button>
+      <button class="pill" data-league="ger.1"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/10.png" alt="">Bundesliga</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero" aria-live="polite">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-inner" id="heroInner">
+        <div class="hero-skeleton">
+          <div class="sk sk-line w30"></div>
+          <div class="sk sk-title"></div>
+          <div class="sk sk-line w50"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="season" aria-label="Season summary">
+      <div class="season-head">
+        <div>
+          <p class="eyebrow" id="seasonEyebrow">Premier League · LaLiga · Bundesliga</p>
+          <h2 class="season-title">Season <span>2026/27</span></h2>
+        </div>
+        <dl class="season-stats" id="seasonStats"></dl>
+      </div>
+      <div class="progress" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+    </section>
+
+    <section class="toolbar" id="toolbar" aria-label="Calendar controls">
+      <div class="seg" id="statusFilter" role="tablist" aria-label="Match status">
+        <button class="seg-btn is-active" data-status="all">All</button>
+        <button class="seg-btn" data-status="upcoming">Fixtures</button>
+        <button class="seg-btn" data-status="results">Results</button>
+      </div>
+      <label class="team-select">
+        <span class="visually-hidden">Filter by team</span>
+        <select id="teamFilter"><option value="">All teams</option></select>
+      </label>
+      <button class="today-btn" id="todayBtn" type="button">Jump to today</button>
+      <div class="months" id="monthNav" aria-label="Jump to month"></div>
+    </section>
+
+    <section class="calendar" id="calendar">
+      <div class="loading" id="loading">
+        <div class="ball" aria-hidden="true"></div>
+        <p>Loading the 2026/27 season…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Fixtures, results and match data from ESPN · Stadium photos from Wikimedia Commons (CC BY-SA) · Times shown in your local time zone.</p>
+    <p>Player of the Match is calculated from each player's match stats (goals, assists, shots, saves, clean sheets, cards), not an official award.</p>
+  </footer>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Match details" tabindex="-1">
+    <button class="drawer-close" id="drawerClose" aria-label="Close match details">
+      <svg viewBox="0 0 24 24" width="20" height="20"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="drawer-body" id="drawerBody"></div>
+  </aside>
+
+  <script src="js/venues.js?v=2"></script>
+  <script src="js/app.js?v=2"></script>
+</body>
+</html>
